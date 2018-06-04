@@ -41,7 +41,7 @@ cordova plugin add cordova-plugin-splashscreen
 cordova plugin add ionic-plugin-keyboard
 ionic cordova plugin add couchbase-lite-cordova-android-plugin
 ```
-Couchbase Lite plugin source: https://github.com/sumeet-singh04/Couchbase-Lite-PhoneGap-Plugin - adds the couchbase lite 1.4.1 to the IMA app
+Couchbase Lite plugin source: https://github.com/sumeet-singh04/Couchbase-Lite-PhoneGap-Plugin - adds the couchbase lite 1.4.1 to the app
 
 ### Resolving Gradle Conflicts For Android
 
