@@ -4,9 +4,9 @@ var todoDatabase = null;
 
 couchbaseApp.run(function($ionicPlatform, $couchbase) {
     $ionicPlatform.ready(function() {
-        if(window.cordova && window.cordova.plugins.Keyboard) {
-            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-        }
+        // if(window.cordova && window.cordova.plugins.Keyboard) {
+        //     cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+        // }
         if(window.StatusBar) {
             StatusBar.styleDefault();
         }
@@ -19,7 +19,7 @@ couchbaseApp.run(function($ionicPlatform, $couchbase) {
                     return;
                 }
                 todoDatabase = new $couchbase(url, "todo");
-                todoDatabase.createDatabase().then(function(result) {
+                todoDatabase.createDatabase().then(function() {
                     var todoViews = {
                         lists: {
                             map: function(doc) {
@@ -74,8 +74,8 @@ couchbaseApp.controller("LoginController", function($scope, $state, $ionicHistor
     });
 
     $scope.basicLogin = function() {
-        todoDatabase.replicate("todo", "http://192.168.56.1:4984/todos", true).then(function(result) {
-            todoDatabase.replicate("http://192.168.56.1:4984/todos", "todo", true).then(function(result) {
+        todoDatabase.replicate("todo", "http://127.0.0.1:5554/todos", true).then(function() {
+            todoDatabase.replicate("http://127.0.0.1:5555/todos", "todo", true).then(function() {
                 $state.go("todoLists");
             }, function(error) {
                 console.error("ERROR -> " + JSON.stringify(error));
